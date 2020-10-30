@@ -14,10 +14,11 @@ class NavBar extends Component {
                     <li><Link to ='/custInfo'>Customer Info</Link></li>
                     <li><Link to ='/checkout'>Checkout</Link></li>
                 </ul>
-                
+
                 <Route exact path='/' component={OrderPage}/>
                 {/* <Route path='/custInfo' component={}></Route> */}
                 {/* <Route path='/checkout' component={}></Route> */}
+                {/* <Route path='/admin' component={}></Route> */}
             </div>
             </Router>
         )
