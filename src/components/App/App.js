@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
-import { connect } from 'react-redux';
+import NavBar from '../NavBar/NavBar';
+import {connect} from 'react-redux';
 
 class App extends Component {
   render() {
@@ -10,14 +11,16 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Prime Pizza</h1>
         </header>
+        <NavBar />
         <br/>
-        <img src="images/pizza_photo.png"/>
-        <p>Pizza is great.</p>
+        {/* <img src="images/pizza_photo.png"/>
+        <p>Pizza is great.</p> */}
+        
+        
       </div>
     );
   }
 }
 
-const putReduxStateOnProps = (reduxState) => ({reduxState})
-
+const putReduxStateOnProps = (ReduxState) => ({ReduxState});
 export default connect(putReduxStateOnProps)(App);

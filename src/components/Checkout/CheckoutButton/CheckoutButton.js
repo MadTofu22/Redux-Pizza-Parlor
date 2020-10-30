@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-class Checkout extends Component {
+class CheckoutButton extends Component {
 
     render() {
-       
-        });
         return (
             <div>
-                <h2>'Step 3: Checkout'</h2>
+                //information to database 
+                //confirmation alert for order 
+                //route user back to homepage
             </div>
-        )
-    }
-}
+        );
+    };
+};
+
+const putReduxStateOnProps = (reduxState) => ({reduxState})
+
+export default connect(putReduxStateOnProps)(CheckoutButton);
