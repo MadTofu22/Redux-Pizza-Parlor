@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import './App.css';
+//import './App.css';
+import axios from 'axios';
 
 class CustInfoForm extends Component {
 
+    // componentDidMount = () => {
+    //     //function call here?
+    // }
+
     state = {
         custInfo: {
-            name: event.target.value?,
-            streetAddress:
-            city:
-            zip: 
-            type: Boolean?
+            customer_name: '',
+            street_address: '',
+            city: '',
+            zip: '',
+            type: true
         }
     }
 
@@ -26,37 +31,45 @@ class CustInfoForm extends Component {
         //should route to order checkout page/component
         this.props.dispatch({type: 'SUBMIT_CUST_INFO'})
         //POST request here
+        axios.post('/custInfo', this.state.custInfo).then ((response) => {
+            //should this link be custInfo? or order? or something else?
+            console.log(response.data);
+            //this.props.getBooks();
+      
+          }).catch((error) => {
+            console.log(error);
+          });
     }
 
     handleChange = (event) => {
+        //event.preventDefault();
         this.setState({
-            
-          inputValue: event.target.value
+            custInfo: event.target.value
         });
+        //do I need to add a key/value pair here for the updated total?
     }
-      //do this for all input values to bundle the info as 1 object
-    //Do I need this here? or is this handled by the addCustInfo function? Use for updating total in header and call in submit function
+    // Use for updating total in header and call in submit function
 
     render(){
         return (
             //should I import the header component here? Also, do I need to/how do I add the total in the shared header
             <div className="CustInfoForm">
-                <heading>Step 2: Customer Information</heading>
-
+                <h3>Step 2: Customer Information</h3>
+                <br></br>
                 <input onChange={this.addCustInfo} placeholder="Name"></input>
                 <input onChange={this.addCustInfo} placeholder="Street Address"></input>
                 <input onChange={this.addCustInfo} placeholder="City"></input>
                 <input onChange={this.addCustInfo} placeholder="Zip"></input>
                 {/* Do I need more than one addInfo type function here or can they all be captured on a single click event? */}
                 {/* CSS should be left-aligned under each other and heading */}
-
-                <input type="radio" id="pickup"></input>
-                <label for="pickup">Pickup</label>
                 <br></br>
-                <input type="radio" id="delivery"></input>
-                <label for="delivery">Delivery</label>
+                <input value={this.state.custInfo.type} type="radio" id="pickup"></input>
+                <label htmlFor="pickup">Pickup</label>
+                <br></br>
+                <input value={this.state.custInfo.type} type="radio" id="delivery"></input>
+                <label htmlFor="delivery">Delivery</label>
                 {/* CSS should float in the middle paralell to name and st ad inputs */}
-
+                <br></br>
                 <button onClick={this.submitCustInfo}>NEXT</button>
                 {/* CSS should right float in the bottom right corner. Next button */}
             </div>
