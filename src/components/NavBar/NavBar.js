@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import OrderPage from '../PageOne/OrderPage/OrderPage';
+import CustInfoForm from '../CustInfoForm/CustInfoForm';
 
 class NavBar extends Component {
 
@@ -16,7 +17,7 @@ class NavBar extends Component {
                 </ul>
 
                 <Route exact path='/' component={OrderPage}/>
-                {/* <Route path='/custInfo' component={}></Route> */}
+                <Route path='/custInfo' component={CustInfoForm}></Route>
                 {/* <Route path='/checkout' component={}></Route> */}
                 {/* <Route path='/admin' component={}></Route> */}
             </div>
