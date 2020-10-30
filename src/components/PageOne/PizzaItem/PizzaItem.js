@@ -9,14 +9,19 @@ class PizzaItem extends Component {
 
     handleSubmit = () => {
 
+        this.setState({
+            clicked: true
+        });
+        
         this.props.dispatch({
             type: 'ADD_TO_CART', 
             payload: {
                 name: this.props.pizza.name,
                 price: this.props.pizza.price
             }
-        })l
+        });
     }
+
     render () {
         return (
             <div>
