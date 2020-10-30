@@ -4,22 +4,27 @@ import {connect} from 'react-redux';
 class PizzaItem extends Component {
 
     state = {
-        clicked: false
+        clicked: false,
+        order: []
     }
 
     handleSubmit = () => {
 
+        console.log('clicked');
+
         this.setState({
-            clicked: true
+            clicked: !this.state.clicked
         });
-        
-        this.props.dispatch({
-            type: 'ADD_TO_CART', 
-            payload: {
-                name: this.props.pizza.name,
-                price: this.props.pizza.price
-            }
-        });
+
+        if (!this.state.clicked){
+            this.props.dispatch({
+                type: 'ADD_TO_CART', 
+                payload: {
+                    name: this.props.pizza.name,
+                    price: this.props.pizza.price
+                }
+            });
+        }
     }
 
     render () {
@@ -30,7 +35,7 @@ class PizzaItem extends Component {
                     <h5>{this.props.pizza.name}</h5>
                     <p>{this.props.pizza.description}</p>
                 </div>
-                <button id='inCart' onSubmit={this.handleSubmit}>
+                <button id='inCart' onClick={this.handleSubmit}>
                     {this.state.clicked ?
                     <p>Remove</p>
                     :
