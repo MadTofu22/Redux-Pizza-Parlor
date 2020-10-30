@@ -4,7 +4,12 @@ import {connect} from 'react-redux';
 class Header extends Component {
 
     render () {
-        return 
+        return (
+            <div>
+                <h1>Pod 5 Pizza</h1>
+                <p>Total:</p>
+            </div>
+        );
     }
 }
 
