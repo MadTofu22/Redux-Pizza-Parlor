@@ -6,16 +6,28 @@ import './App.css';
 class CustInfoForm extends Component {
 
     //should I add state here with an object that takes in name, address, etc.?
+    // state = {
+    //     inputValue: ''
+    // }
 
     addCustInfo = () => {
         console.log("customer info form")
         //should capture an object and including info from 1st order page and route to checkout page/component
+        //this.props.dispatch({type: 'ADD_CUST_INFO', payload: this.state.inputValue})
     }
 
     submitCustInfo = () => {
         console.log("clicked",)
         //should route to order checkout page/component
+        //this.props.dispatch({type: 'SUBMIT_CUST_INFO'})
     }
+
+    // handleChange = (event) => {
+    //     this.setState({
+    //       inputValue: event.target.value
+    //     });
+    //   }
+    //Do I need this here? or is this handled by the addCustInfo function?
 
     render(){
         return (
