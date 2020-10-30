@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Address from '../Address/Address';
-import PizzaTable from '../PizzaTable/PizzaTable';
-import CheckoutButton from '../CheckoutButton/CheckoutButton';
+import Address from './Address/Address';
+import PizzaTable from './PizzaTable/PizzaTable';
+import CheckoutButton from './CheckoutButton/CheckoutButton';
 
 class Checkout extends Component {
 
