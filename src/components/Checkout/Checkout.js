@@ -8,16 +8,12 @@ class Checkout extends Component {
         });
         return (
             <div>
-                <h2>Checkout</h2>
-             
+                <h2>'Step 3: Checkout'</h2>
             </div>
         )
     }
 }
 
-
-    
-}
 
 
 
